@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style >
+            .overall{
+                display: block;
+                margin: auto;
+                max-height: 500px;
+                max-width: 500px;
+                background-color: goldenrod;
+                padding: 5%;
+                align-content: center;
+                }
+            .blogdiv{
+                background-color: whitesmoke;
+                align-content: center;
+                margin: 2%;
+                padding: 2%;
+            }  
+            a{
+                margin: 2%;
+            }    
+        </style>
+    </head>
+    <body>
+        <div class="overall">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/news">News</a>
+            <a href="/blogposts">Blog</a>
+            {% for post in posts %}
+                <div class= "blogdiv">
+                    <h2><a href="">{{ post.title }}</a></h2>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                    <p>published: {{ post.published_date }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

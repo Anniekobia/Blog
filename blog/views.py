@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.utils import timezone
+from . models import Post
 
 # Create your views here.
 def home(request):
@@ -10,5 +12,6 @@ def about(request):
 def news(request):
     return render(request, 'blog/news.html', {})
 
-def post_list(request):
-    return render(request, 'blog/post_list.html', {})
+def posts(request):
+    posts = Post.objects.all()
+    return render(request, 'blog/posts.html', {'posts': posts})
